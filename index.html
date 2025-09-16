@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adelbertus Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background: #222;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+        }
+        .product-card {
+            background: white;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .product-card img {
+            max-width: 100%;
+            border-radius: 6px;
+        }
+        .ad-container {
+            position: relative;
+            max-width: 728px;
+            height: 180px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ad-banner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .ad-banner.active {
+            opacity: 1;
+        }
+        .banner-img {
+            max-width: 60%;
+            max-height: 100%;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <header>🛒 Adelbertus Shop</header>
+
+    <h2>Nasze produkty</h2>
+    <div class="product-card">
+        <img src="https://i.ibb.co/1fWw0hhY/Screenshot-20250714-002113-Files-by-Google-2.jpg" alt="Koszulka Vintage">
+        <h3>Koszulka "Vintage"</h3>
+        <p>120 zł</p>
+        <button>Dodaj do koszyka</button>
+    </div>
+
+    <!-- Sekcja reklamowa -->
+    <div class="ad-container">
+        <div class="ad-banner active">
+            <a href="tel:537836722" target="_blank">
+                <img src="https://i.ibb.co/jk3z3hwR/Messenger-creation-9-C2-DF47-C-5660-4-D41-8652-E1-A259-B8-B09-C-1.jpg" 
+                     alt="Filipex Firma Remontowo-Budowlana" 
+                     class="banner-img">
+            </a>
+        </div>
+    </div>
+
+    <footer style="background:#222;color:white;padding:15px;margin-top:40px;">
+        © 2025 Adelbertus Shop – Wszystkie prawa zastrzeżone
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const banner = document.querySelector('.ad-banner');
+            let visible = true;
+            let seconds = 10; // czas wyświetlania
+
+            function toggleBanner() {
+                if (visible) {
+                    banner.classList.remove('active');
+                    visible = false;
+                    seconds = 3; // przerwa
+                } else {
+                    banner.classList.add('active');
+                    visible = true;
+                    seconds = 10; // ponowne wyświetlanie
+                }
+            }
+
+            setInterval(() => {
+                seconds--;
+                if (seconds <= 0) toggleBanner();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
